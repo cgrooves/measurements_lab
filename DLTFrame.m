@@ -165,6 +165,17 @@ classdef DLTFrame
             point3d = (Q' * Q) \ Q' * q;           
         end
         %-------------------------
+        function points = points(self,left_points,right_points)
+            
+            n = size(left_points,1);
+            
+            points = zeros(n,3);
+            
+            for i = 1:n
+                points(i,:) = self.point(left_points(i,:),right_points(i,:));
+            end
+        end
+        %-------------------------
             
     end            
 end
